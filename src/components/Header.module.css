@@ -1,0 +1,9 @@
+.img {
+  width: 350px;
+  object-fit: cover;
+}
+
+.div {
+  display: flex;
+  justify-content: space-between;
+}
