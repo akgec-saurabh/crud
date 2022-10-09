@@ -8,7 +8,7 @@ const CustomerList = (props) => {
   return (
     <div>
       <Header />
-      <AddUser />
+      <AddUser add={props.add} />
       <div className={classes.flex}>
         <table className={classes.table}>
           <thead>

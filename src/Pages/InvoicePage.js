@@ -4,12 +4,36 @@ import Header from "../components/Header";
 import { Fragment, useState } from "react";
 
 const InvoicePage = (props) => {
+  const [product, setProduct] = useState();
+  // const [defsel, setDefSel] = useState();
+  //Product List
+  const productList = (prod) => {
+    console.log(prod);
+    setProduct(prod);
+  };
+
+  const invoiceHandler = () => {
+    props.onMain();
+    props.onPro(product);
+    // props.onsel(defsel);
+  };
+
+  // const def = (e) => {
+  //   console.log(e.target.value);
+  //   setDefSel(e.target.value);
+  // };
+
   return (
     <Fragment>
       <Header />
-      <button className={classes.back} onClick={props.onBack}>
-        Back
-      </button>
+      <div className={classes.btn}>
+        <button className={classes.back} onClick={props.onBack}>
+          Back
+        </button>
+        <button onClick={invoiceHandler} className={classes.back}>
+          Go To Invoice
+        </button>
+      </div>
       <div className={classes.detail}>
         <div className={classes.customerDetail}>
           <label>
@@ -37,7 +61,7 @@ const InvoicePage = (props) => {
             <span>{`IN${Math.trunc(Math.random() * 10000000)}`}</span>
           </div>
         </div>
-        <Invoice list={props.list} />
+        <Invoice productList={productList} list={props.list} />
       </div>
     </Fragment>
   );

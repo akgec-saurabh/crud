@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   color: black;
-  transition: all 0.5s;
 }
 
 .cont {
@@ -16,6 +15,7 @@
   box-shadow: 5px 5px 18px #d6d6d6, -5px -5px 18px #ffffff;
   padding: 10px;
   border-radius: 1rem;
+  transition: all 0.5s;
 }
 
 label {
@@ -40,18 +40,22 @@ input {
   text-align: center;
 }
 
-img {
+.hello > input {
   width: 30px;
   transition: all 0.5s;
   margin: 10px;
 }
 
-img:hover {
+.hello > input:hover {
   transform: translateY(-2px);
   filter: drop-shadow(0 0 5px #bebebe);
 }
 
-.add:hover {
+.cont:hover {
   transform: translateY(-2px);
-  filter: drop-shadow(0 0 5px #bebebe);
+  filter: drop-shadow(0 0 5px #e3e3e3);
+}
+
+.hello {
+  box-shadow: unset;
 }

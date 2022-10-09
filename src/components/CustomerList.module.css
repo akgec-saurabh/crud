@@ -16,6 +16,10 @@ thead {
   height: 3rem;
 }
 tr {
+  transition: all 0.5s;
+}
+tr:hover {
+  transform: translateY(-2px);
   box-shadow: 5px 5px 18px #d6d6d6, -5px -5px 18px #ffffff;
 }
 
@@ -24,6 +28,7 @@ tr {
   height: 1.5rem;
   transition: all 0.5s;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 .eimg:hover,

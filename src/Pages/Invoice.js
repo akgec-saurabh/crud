@@ -1,11 +1,22 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import AddUser from "../components/AddUser";
 import classes from "./Invoice.module.css";
 
 const Invoice = (props) => {
   const [products, setProducts] = useState([
     {
-      name: "iphone",
-      price: 749,
+      name: "iphone 14",
+      price: 130000,
+      quantity: 1,
+    },
+    {
+      name: "iphone SE",
+      price: 49999,
+      quantity: 1,
+    },
+    {
+      name: "iphone XR",
+      price: 74999,
       quantity: 1,
     },
   ]);
@@ -22,6 +33,10 @@ const Invoice = (props) => {
     });
     // console.log(e.target.value);
   };
+
+  useEffect(() => {
+    props.productList(products);
+  }, [products]);
 
   const addProductHandler = (e) => {
     e.preventDefault();
@@ -41,9 +56,8 @@ const Invoice = (props) => {
   return (
     <div className={classes.in}>
       <div className={classes.add}>
-        <div>Add New Product</div>
-
         <form onSubmit={addProductHandler}>
+          <div>Add New Product</div>
           <label>
             Name
             <input ref={productName} required type="text"></input>
@@ -61,34 +75,36 @@ const Invoice = (props) => {
           <button type="submit">Add Products</button>
         </form>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Product Name</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((item) => {
-            return (
-              <tr key={Math.random()}>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>
-                  <button value={item.name} onClick={delHandler}>
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div>
-        <span>
+      <div className={classes.tablep}>
+        <table>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((item) => {
+              return (
+                <tr key={Math.random()}>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                  <td>{item.quantity}</td>
+                  <td>
+                    <button value={item.name} onClick={delHandler}>
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className={classes.inv}>
+        <div className={classes.p}>
           Invoice Total : &nbsp;
           <span>
             Rs.
@@ -96,7 +112,7 @@ const Invoice = (props) => {
               .map((item) => item.price * item.quantity)
               .reduce((a, b) => a + b)}
           </span>
-        </span>
+        </div>
       </div>
     </div>
   );

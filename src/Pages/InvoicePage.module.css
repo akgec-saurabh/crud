@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  background-color: rgb(162, 218, 255);
+  /* background-color: rgb(162, 218, 255); */
   /* height: 1rem; */
+  box-shadow: 5px 5px 19px #d6d6d6, -5px -5px 19px #ffffff;
 }
 
 .customerDetail select {
@@ -13,6 +14,11 @@
   /* margin: 1rem; */
   padding: 0 1rem;
   display: flex;
+  /* border: 0; */
+  border: 1px solid #1a85c8;
+  border-radius: 0.5rem;
+  outline: 0;
+  margin-left: 0.5rem;
 }
 
 .logo {
@@ -23,14 +29,14 @@
   width: 10rem;
   height: 2.5rem;
   margin: 0.5rem 2rem;
-  background-color: rgb(236, 0, 0);
+  background-color: #1a85c8;
   color: white;
   font-size: 16px;
   border: 0;
+  border-radius: 0.5rem;
 }
 
-.back:hover {
-  box-shadow: 0 0 5px #868686;
-  transform: translateX(-0.1rem);
-  transition: transform 0.5s;
+.btn {
+  display: flex;
+  justify-content: space-between;
 }
